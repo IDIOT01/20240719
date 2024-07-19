@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+.vscode/
+datasets/
+*.pth
+logs/
+
+.conda/
+tmp/

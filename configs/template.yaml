@@ -1,0 +1,41 @@
+# data related settings
+dataset: CIFAR10
+data_root: ./datasets
+iid_degree: 1000 # alpha
+seed: 42
+targets: True #False for dataset has no such attribute 'targets'
+select_num: 1000 # I am not sure if this parameter should be used.
+batch_size: 64
+
+# task and algorithm
+task: CV # supports CV and Regression
+algorithm: FedAvg # supports FedAvg, FedProx, FedBN
+
+# FL related settings
+rounds: 150 # global rounds
+num_clients: 10 # client number
+train_fraction: 0.9 # training dataset ratio
+clients_fraction: 1 # client selection ratio
+local_epoch: 1 # local epoch
+device: cpu # cpu or cuda
+
+# model related settings
+model_name: cnn_moe # model name
+# args should refer the implement in models.moe.py and MODEL_LIST in utils.py 
+model_kwargs:
+  num_classes: 10
+
+# optimizer and loss settings
+optimizer: Adam
+optimizer_kwargs:
+  lr: 0.0001
+  weight_decay: 0.005
+criterion: CrossEntropyLoss
+
+# flower framework resource settings
+client_resources:
+  num_gpus: 0
+  num_cpus: 1
+
+# logs
+log_dir: ./logs
